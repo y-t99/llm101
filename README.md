@@ -1,12 +1,15 @@
 # chatbot
 
-
 ## LangChain
+
+LangChain is a framework for developing applications powered by large language models (LLMs).
 
 ### Concept
 
 1. Chains refer to sequences of calls - whether to an LLM, a tool, or a data preprocessing step.
 2. LangChain Expression Language, or LCEL, is a declarative way to easily compose chains together.
+3. Agents are systems that use an LLM as a reasoning enginer to determine which actions to take and what the inputs to those actions should be.The results of those actions can then be fed back into the agent and it determine whether more actions are needed, or whether it is okay to finish.
+4. Retrieval Augmented Generation (RAG), is a technique for augmenting LLM knowledge with additional data.
 
 ## Dev
 
@@ -16,6 +19,8 @@
 OPENAI_API_KEY=
 OPENAI_BASE_URL=
 ```
+
+### Run
 
 ```shell
 yarn run run

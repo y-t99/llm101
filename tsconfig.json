@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "module": "NodeNext",
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,

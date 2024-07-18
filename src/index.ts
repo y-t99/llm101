@@ -1,4 +1,3 @@
-import { ChatOpenAI } from "@langchain/openai";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { RunnableWithMessageHistory } from "@langchain/core/runnables";
 import { InMemoryChatMessageHistory } from "@langchain/core/chat_history";
@@ -10,22 +9,19 @@ import {
 } from "@langchain/core/runnables";
 import * as crypto from 'crypto';
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
-import { CheerioWebBaseLoader } from "@langchain/community/document_loaders/web/cheerio";
+import { TextLoader } from "langchain/document_loaders/fs/text";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { createRetrieverTool } from "langchain/tools/retriever";
 import { createOpenAIFunctionsAgent } from "langchain/agents";
 import { AgentExecutor } from "langchain/agents";
-import { LlamaCppEmbeddings } from "@langchain/community/embeddings/llama_cpp";
-
-const llamaPath = "./llama-2-7b-chat.GGUF.q4_0.bin";
+import { OllamaEmbeddings } from "@langchain/community/embeddings/ollama";
+import {ChatOllama} from "@langchain/community/chat_models/ollama";
 
 async function main() {
 
     const tools = [];
 
-    const loader = new CheerioWebBaseLoader(
-        "https://blog.teable.io/blog/data-reimagined-postgres-airtable-fusion"
-    );
+    const loader = new TextLoader("./sample.txt");
 
     const rawDocs = await loader.load();
 
@@ -35,8 +31,8 @@ async function main() {
     });
     const docs = await splitter.splitDocuments(rawDocs);
 
-    const embeddings = new LlamaCppEmbeddings({
-        modelPath: llamaPath,
+    const embeddings = new OllamaEmbeddings({
+        model: "llama3",
     });
 
     const vectorStore = await MemoryVectorStore.fromDocuments(
@@ -47,9 +43,9 @@ async function main() {
     const retriever = vectorStore.asRetriever();
 
     const retrieverTool = createRetrieverTool(retriever, {
-        name: "agent",
+        name: "Teable.io_Search",
         description:
-            "Search for information about teable. For any questions about teable, you must use this tool!",
+            "Search for information about Teable.io. For any questions about Teable.io, you must use this tool!",
     });
 
     tools.push(retrieverTool);
@@ -60,12 +56,8 @@ async function main() {
         return chat_history.slice(-10);
     };
 
-    const model = new ChatOpenAI({
-        model: "gpt-3.5-turbo",
-        temperature: 0
-    }, {
-        apiKey: process.env.OPENAI_API_KEY,
-        baseURL: process.env.OPENAI_BASE_URL
+    const model = new ChatOllama({
+        model: "llama3",
     });
 
     const chatPrompt = ChatPromptTemplate.fromMessages([
@@ -76,7 +68,7 @@ async function main() {
     ]) as any;
 
     let agent = await createOpenAIFunctionsAgent({
-        llm: model,
+        llm: model as any,
         tools,
         prompt: chatPrompt,
     });
@@ -90,7 +82,7 @@ async function main() {
         RunnablePassthrough.assign({
             chat_history: filterMessages,
         }),
-        agentExecutor as any
+        agentExecutor as any,
     ]);
 
     const withMessageHistory = new RunnableWithMessageHistory({
@@ -112,14 +104,26 @@ async function main() {
         },
     };
 
-    const input = "what's Teable.io?"
-    const output = await withMessageHistory.invoke(
+    const input = "Search for information about Teable.io.";
+
+    console.log(`I: ${input}`)
+    const events = withMessageHistory.streamEvents(
         {
             input: input,
         },
-        config
+        {
+            ...config,
+            version: 'v2',
+        }
     );
-    console.log(`Bot: ${JSON.stringify(output, null, 2)}`)
+    console.log('Bot: ')
+    for await (const event of events) {
+        const eventType = event.event;
+        if (eventType === "on_chat_model_stream") {
+            process.stdout.write(`${event.data.chunk.content}`);
+        }
+    }
+    console.log('')
 }
 
 main();

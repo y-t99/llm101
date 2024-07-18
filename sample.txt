@@ -1,0 +1,85 @@
+Data Reimagined: Postgres-Airtable Fusion
+Collaborate directly on postgres like Airtable
+
+Teable.io is a no-code database product that transforms relational databases like Postgres into an interactive spreadsheet interface, making Postgres's powerful capabilities no-code, making it possible to build low-cost, powerful, and scalable applications.
+
+In this article, we will describe the design philosophy of this product, share the current progress of the product, and discuss the exciting new capabilities that combining Postgres with Airtable will bring, as well as our vision for the future of no-code software development.
+
+Building a Stunning Spreadsheet Interface for Postgres
+Databases and spreadsheets are like brothers, one is serious and high-performing, offering excellent performance and providing powerful data support for applications, but requiring developers to drive through code. The other is flexible and easy to use, a fundamental infrastructure for data processing in the modern office system, almost a basic skill for everyone.
+
+We created an organic combination of the two, not only converting ordinary editing operations into a what-you-see-is-what-you-get experience but also organically inheriting the mechanism of column data types, making it the foundation for creating powerful and stable applications.
+
+Of course, we are not the first to try to use a spreadsheet interface as a database editing method. Many well-known solutions have adopted similar forms. But we want to go further, allowing all members of a team to collaborate and build applications directly on the same database and supplement all the necessary basic capabilities around this point.
+
+This is the spreadsheet view interface of Teable, where every table you see corresponds to a physical table in Postgres.
+
+
+We have successfully transformed the database's tables into a spreadsheet interface similar to Airtable, ensuring a smooth and seamless interface.
+
+An Extreme No-Code Experience
+Complete Field Types
+We have all the necessary field types, forming the complete conditions for building applications, especially powerful foundations for handling data relationships and calculations.
+
+
+Field list
+Spreadsheet and Real-Time Collaboration
+It is a professional database and a flexible spreadsheet, and can also collaborate with collaborators in real time.
+
+
+Collaboration
+Infinite Scrolling
+Smooth scrolling without needing to turn pages, you can scroll unrestrictedly to any position in the database, just like in Google Sheets. (try it)
+
+3MB
+unlimited-scroll.mp4
+More Essential Good Operation Experience
+Teable provides a richer operation experience and features such as filtering, sorting, and dragging, ensuring that users migrating from Airtable, Baserow, Notion, Monday.com, Google Sheets can immediately feel that this is the spreadsheet-database they have been looking for.
+
+Data Relationships and Calculations
+From the moment you enter Teable, we have ensured that you will not be bothered by calculations between data, which is the foundation for your business to operate flexibly on Teable.
+
+Teable's excellent data processing capabilities are not only reflected in the amount of data but also in the detail capabilities. Formula, Link, Lookup, and Rollup fields let your sales data, inventory data, and project data be built and obtained completely according to your wishes.
+
+The database is no longer just an engine hidden in the machine, but a powerful tool that can directly interact with users. Ordinary people can also build applications to solve their own business scenarios like developers.
+
+Not Just an Airtable alternative
+Million-Level Data, Millisecond-Level Speed
+Airtable indeed provided revolutionary innovation in the interaction of spreadsheet-style databases and inspired us with endless inspiration, but in certain key areas, it is still limited by its own design. These limitations not only affect its performance and scalability but also limit its application potential in enterprise-level application scenarios.
+
+Compared to Airtable's highest limit of 100,000 rows, Teable's upper limit is based on a real physical relational database. This means that every table that seems simple on Teable is actually a real database table. Therefore, the query and storage performance are theoretically close to the capabilities of the database itself, so we can say that Teable has no upper limit on the number of data rows. Further, we tested a table filled with one million rows of data （Test Table）, and without indexing optimization, complex filtering or statistical queries can be completed in about 200 milliseconds. But the most noteworthy is that Teable also supports indexing optimization. This means that you can further improve query performance, allowing Teable to support millions of rows or even more data.
+
+A Consumption-Level No-Code Database
+The ultra-high performance also means that Teable can provide a higher API request frequency, and more importantly, it inherits the core capabilities of mainstream database management systems, allowing developers to use Teable as a reliable application database to build truly powerful and robust applications, and significantly reduce the operational costs of applications. It is obvious that building applications through the Teable API means you no longer need to create your own database, no longer need to develop any operational management backend, and can connect to professional data analysis tools through database connections. Any changes in requirements can be quickly responded to, and developers only need to focus on the core of creativity.
+
+At the same time, Teable's architecture also brings another important capability, native database capabilities, or SQL capabilities. This allows users to seamlessly integrate various database tools, ensuring a smooth data consumption chain. It also has a very important feature: choosing to enjoy the convenience of the cloud while managing your own data.
+
+100% Data Ownership
+Unlike closed SaaS tools, we stand on providing a no-code application layer for users while retaining the ability of users to fully control their data. This unique design choice allows users to conveniently use our hosted Postgres instance or choose to connect with their own deployed database instance, such as connecting to Supabase (an excellent Serverless database provider). This means that even if you are not a programming expert, you can easily build a fully owned, powerful database environment.
+
+More importantly, we respect and support standard database structures, ensuring that users' data is not confined to a specific platform. The table structure created in Teable will be completely consistent with the structure in the database, so you can use any standard database tool for data migration and easily query data through SQL statements. This transparency and compatibility mean that your data strategy can freely expand with the growth of your business, not constrained by any single service provider.
+
+Sharing a Few Use Cases
+Collaborating Directly on the Database
+Scenario Description: Enterprises can collaborate directly on the database through Teable, managing their core business processes, such as customer relationship management, order processing, inventory monitoring, and project management. For example, sales teams can update customer information and sales funnel status in real time, while inventory management personnel can track product inventory and adjust procurement plans in time.
+
+Case Application: A medium-sized e-commerce company used Teable to build a comprehensive business management system. Through this system, they can synchronize customer order records, update inventory status in real time, and associate these data with ongoing marketing projects. This centralized information management method improved team collaboration efficiency, accelerated the decision-making process, and significantly improved customer satisfaction.
+
+Developing Applications Using Teable API
+Scenario Description: Developers can use Teable's powerful API and database direct connection capabilities to develop applications for customers/users. At the same time, using Teable's spreadsheet interface as the operational backend makes it convenient for non-technical personnel to manage and update application content, such as updating product lists, adjusting pricing strategies, etc.
+
+Case Application: A startup company developed a personalized travel recommendation application using Teable API to handle user data and recommendation algorithms. They also created a Teable backend for content management, allowing the marketing team to easily update travel destination information, special promotions, and user feedback. This approach greatly simplified the operational process and made product updates more rapid and flexible.
+
+Importing Data into Teable for Data Analysis Using API
+Scenario Description: Enterprises can use Teable's API functionality to import external data sources (such as market research data, social media analysis results, etc.) into Teable. These data can be further integrated, summarized, and analyzed to support more complex business decision-making processes.
+
+Case Application: A market research company imported multiple data sources (such as survey questionnaire results, social media trends, etc.) into Teable via API. In Teable, they use custom formulas and data views for in-depth analysis, such as consumer behavior pattern analysis and market trend prediction. This integration method greatly improved their data processing capabilities and report accuracy.
+
+Conclusion
+This is a project that has been carefully considered and developed over the years with a continuous passion for simplifying database management.
+
+Our journey began with a clear and profound goal: to enable everyone to easily manage and operate complex database applications. To achieve this goal, we invested a lot of time in research and development, striving to shield the complexity of database management and provide a simple, efficient solution for you.
+
+We have all experienced this - you want to quickly use no-code tools to meet your business needs, but these tools, although numerous in features, often cannot further extend with the growth of your business. This is where Teable comes into play!
+
+Whether you are a seasoned developer or a beginner who wants to complete your own application but does not understand databases, you can easily manage data and implement complex database applications in Teable. Our goal is to bridge the gap between

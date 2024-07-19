@@ -18,6 +18,7 @@ import { AgentAction, AgentFinish, AgentStep } from "@langchain/core/agents";
 import { InputValues } from "@langchain/core/memory";
 import { formatLogToString } from "langchain/agents/format_scratchpad/log";
 import { PromptTemplate } from "@langchain/core/prompts";
+import {ChatOllama} from "@langchain/community/chat_models/ollama";
 
 /** Create the prefix prompt */
 const PREFIX = `Answer the following questions as best you can. You have access to the following tools:
@@ -161,12 +162,16 @@ async function main() {
         return chat_history.slice(-10);
     };
 
-    const model = new ChatOpenAI({
-        model: "gpt-3.5-turbo",
-        temperature: 0
-    }, {
-        apiKey: process.env.OPENAI_API_KEY,
-        baseURL: process.env.OPENAI_BASE_URL
+    // const model = new ChatOpenAI({
+    //     model: "gpt-3.5-turbo",
+    //     temperature: 0
+    // }, {
+    //     apiKey: process.env.OPENAI_API_KEY,
+    //     baseURL: process.env.OPENAI_BASE_URL
+    // });
+
+    const model = new ChatOllama({
+        model: "llama3",
     });
 
     const agent = RunnableSequence.from([
@@ -175,7 +180,7 @@ async function main() {
             intermediate_steps: (values: InputValues) => values.steps,
         },
         formatMessages,
-        model,
+        model as any,
         customOutputParser,
     ]);
 

@@ -25,7 +25,7 @@ Running Local LLMs
 ### Run
 
 ```shell
-yarn run run
+yarn run index
 
 I: Search for information about Teable.io.
 Bot: 

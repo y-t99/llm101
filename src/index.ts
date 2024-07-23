@@ -13,7 +13,6 @@ import {MemoryVectorStore} from "langchain/vectorstores/memory";
 import {createRetrieverTool} from "langchain/tools/retriever";
 import {AgentExecutor} from "langchain/agents";
 import {OllamaEmbeddings} from "@langchain/community/embeddings/ollama";
-import {ChatOpenAI} from "@langchain/openai";
 import { AgentAction, AgentFinish, AgentStep } from "@langchain/core/agents";
 import { InputValues } from "@langchain/core/memory";
 import { formatLogToString } from "langchain/agents/format_scratchpad/log";
@@ -162,14 +161,6 @@ async function main() {
         return chat_history.slice(-10);
     };
 
-    // const model = new ChatOpenAI({
-    //     model: "gpt-3.5-turbo",
-    //     temperature: 0
-    // }, {
-    //     apiKey: process.env.OPENAI_API_KEY,
-    //     baseURL: process.env.OPENAI_BASE_URL
-    // });
-
     const model = new ChatOllama({
         model: "llama3",
     });
@@ -215,7 +206,11 @@ async function main() {
         },
     };
 
-    const inputs = ["Search for information about Teable.io.", "What's Teable.io", "Tell me more about teable.io feature based on your last update"];
+    const inputs = [
+        "Search for information about Teable.io.",
+        "Teable.io is ?",
+        "Tell me more about teable.io feature based on your last update"
+    ];
 
     for (const input of inputs) {
         console.log(`I: ${input}`)

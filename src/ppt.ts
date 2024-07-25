@@ -1,6 +1,6 @@
-import {exportSlides, getExportOptions} from '@slidev/cli/dist/export-TPYQNCSS.js'
 import {createServer, resolveOptions} from "@slidev/cli";
 import {getPort} from "get-port-please";
+import {generatePPT} from "./slidev-tool.js";
 
 async function exportPpt(entryFile: string) {
     const port = await getPort(12445)
@@ -13,10 +13,9 @@ async function exportPpt(entryFile: string) {
         },
     )
     await server.listen(port)
-    const result = await exportSlides({
+    const result = await generatePPT({
         port,
-        ...getExportOptions({entry: entryFile}, options),
-        format: 'pptx'
+        slides: options.data.slides,
     })
     console.log(result)
     await server.close()

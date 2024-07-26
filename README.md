@@ -85,3 +85,52 @@ Observation: The blog post outlines new features such as enhanced data visualiza
 Thought: I now have a clear understanding of the recent updates to Teable.io features.
 Final Answer: The latest updates to Teable.io include enhanced data visualization tools, improved collaboration features, and expanded integration options with third-party apps.
 ```
+
+## Generate PPT
+
+```shell
+node run mind-mapping
+
+## Donald John Trump
+### Born June 14, 1946, in Queens, New York City
+### American businessman, television personality, and politician
+
+---
+
+## Political Career
+### Ran for president in 2015
+### First person elected as president without prior public service experience
+### Leveraged social media and made bold promises during campaign
+
+---
+
+## Presidency
+### Served as the 45th president from January 20, 2017 to January 20, 2021
+### Implemented policies: tax reforms, Supreme Court appointments, new branch of Armed Forces, First Step Act
+### Withdrew from international agreements and redefined U.S. foreign policy
+
+---
+
+## Controversies and Impeachments
+### Impeached twice by the U.S. House of Representatives (2019 and 2021)
+### Acquitted both times by the Senate
+### January 6 insurrection at the Capitol
+
+---
+
+## Post-Presidency
+### Announced candidacy for president again in 2024 election
+### Successfully secured Republican nomination
+### Continues to engage actively in political discourse within GOP
+
+---
+
+## Legacy
+### Complex figure with a multifaceted and deeply polarizing impact on modern American politics
+### Blend of traditional conservative values and innovative approaches to governance
+
+
+# copy content to ./slide.md
+
+node run ppt
+```

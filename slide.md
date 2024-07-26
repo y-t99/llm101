@@ -1,19 +1,46 @@
-# Title
-
-Hello, **Slidev**!
+# Who's Trump
 
 ---
 
-# Slide 2
+## Early Life and Career
 
-Use code blocks for highlighting:
-
-```ts
-console.log('Hello, World!')
-```
+### Born June 14, 1946, in Queens, New York City
+### Primarily focused on business and entertainment before politics
 
 ---
 
-# Slide 3
+## Political Career
 
-Use UnoCSS classes and Vue components to style and enrich your slides:
+### Announced presidential candidacy in 2015
+### First person elected president without prior public service experience
+
+---
+
+## Presidential Tenure
+
+### Implemented major tax reforms
+### Appointed three Supreme Court Justices
+### Signed into law the First Step Act and established U.S. Space Force
+
+---
+
+## Controversies and Impeachments
+
+### Impeached twice by House of Representatives
+### Acquitted both times by Senate
+### January 6 insurrection at Capitol
+
+---
+
+## Post-Presidency
+
+### Announced candidacy for president again in 2024
+### Secured Republican nomination
+### Remains influential figure within GOP
+
+---
+
+## Legacy
+
+### Complex and polarizing figure in American politics
+### Blend of traditional conservative values and innovative governance approaches

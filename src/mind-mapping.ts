@@ -27,20 +27,29 @@ Don't use double quotation marks
 Don't include FAQs
 The output result should be presented in an organized structure
 Text to be generate: {content}
-The output result should follow the format below, and each part should include no more than 3 subheadings and each leaf part should be within 50 characters under each part. Each part title should be written in a proper way: 
-# This is the first part of the example returned by the mind mapping 
-   - This is the first subpart
-   - This is the second subpart
-   - This is the third subpart
-# This is the second title of the example returned by the mind mapping
-   - This is the first subpart
-   - This is the second subpart
-# This is the third title of the example returned by the mind mapping
-   - This is the first subpart
-   - This is the second subpart
-# This is the fourth title of the example returned by the mind mapping
-   - This is the first subpart
-   - This is the second subpart
+The output result should exactly follow the format below, and each part should include no more than 3 subheadings and each leaf part should be within 50 characters under each part, and don't ignore empty lines and --- in the format: 
+## This is the first part of the example returned by the mind mapping 
+### This is the first subpart
+### This is the second subpart
+### This is the third subpart
+   
+---
+
+## This is the second title of the example returned by the mind mapping
+### This is the first subpart
+### This is the second subpart
+   
+---
+
+## This is the third title of the example returned by the mind mapping
+### This is the first subpart
+### This is the second subpart
+
+---
+
+## This is the fourth title of the example returned by the mind mapping
+### This is the first subpart
+### This is the second subpart
 `;
 
 const model = new Ollama({
